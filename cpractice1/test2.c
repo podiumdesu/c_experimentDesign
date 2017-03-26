@@ -14,6 +14,7 @@ int main (void) {
     printf("now a = %d , b = %d\n ",a ,b);
     printf("Please input another two numbers(q to quit)\n");
   }
+  printf("Bye!!Have a nice day\n");
 
   return 0;
 }

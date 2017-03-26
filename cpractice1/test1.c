@@ -13,13 +13,13 @@ int main(void)
 	printf("\n%d(F)=%.2f(C)\n\n",f,c);
 	/*for task 2*/
 	printf("input the radius r:");
-	scanf("%f",&r);
+	scanf("%lf",&r);
 	s=PI*r*r;
 	printf("\nThe acreage is %.2f\n\n",s);
 	/* for task 3*/
 	printf("input hex int k,p:");
 	scanf("%hx %hx",&k,&p);
 	newint=(p&0xff00)|(k&0xff00)>>8;
-	printf("new int=%d\n\n",newint); 
+	printf("new int=%d\n\n",newint);
 	return 0;
-} 
+}

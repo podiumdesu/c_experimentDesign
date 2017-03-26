@@ -7,14 +7,14 @@
 #include<stdio.h>
 int main(){
 	unsigned short x,m,n,a,b;
-  printf("Please input a number and the m n that you want to take\n");
+  printf("请输入x（16进制），m，n\n");
 	printf("Please notice that 0<=m<=15 and 1<=n<=(16-m)!!\n");
-	while (scanf("%hd %hd %hd",&x,&m,&n) == 3) {
+	while (scanf("%hx %hd %hd",&x,&m,&n) == 3) {
 
 			if(m >= 0 && m <= 16 && n >= 1 && n <= 16-m) {
 		  	a = x>>m;
 			  b = a<<(16-n);
-		  	printf("The result is %d\n",b);
+		  	printf("The result is %hx\n",b);
 		  }
 		  else {
 				printf("Please input correct numbers\n");

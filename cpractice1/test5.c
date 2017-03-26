@@ -20,5 +20,6 @@ int main (void){
     printf("Please input another unsigned int number (q to quit)\n");
 //    scanf("%ld",&number);
   }
+  printf("Bye!!Have a nice day!\n");
   return 0;
 }
