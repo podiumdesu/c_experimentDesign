@@ -14,7 +14,7 @@ int main()
       for(i=0;i<N;i++)
 
       {
-
+        
       for(j=N;j>i;j--)
 
       printf("  ");           /*输出前置空格*/
@@ -39,7 +39,7 @@ int main()
 
       }
 
-      printf("%4d",b/c);     
+      printf("%4d",b/c);
 
       }
 
