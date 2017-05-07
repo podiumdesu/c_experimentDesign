@@ -6,7 +6,27 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#define STU_NUM 4
+#define COU_NUM 3
+
 int main (void) {
+  char course[COU_NUM][20];
+  //int score[STU_NUM][COU_NUM];    //i个学生，每个学生j个成绩
+  //int **ptr = score;
+  char *ptr_course[20];//定义一个指针数组
+  //数组首地址代表的是一个指针
+  int (*ptr_score)[COU_NUM];   //定义一个指针数组 二维的
   printf("4 students and 3 courses\n");
   printf("Please input the courses:");
+  for (int i = 0; i < COU_NUM; i++) {
+    *(ptr_course+i) = malloc(sizeof(char)*20);
+    scanf("%s",*(ptr_course+i));
+    printf("Now please input students' score:");
+    for (int j = 0; j < STU_NUM; i++) {
+      *(*(ptr_score+i)+j) = malloc(sizeof(int)*STU_NUM);
+      scanf("%d",*(ptr_score+i)+j);
+    }
+  }
+  return 0;
 }

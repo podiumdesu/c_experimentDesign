@@ -27,7 +27,7 @@ int main(){
 #include <stdio.h>
 #include <string.h>
 void bubble_sort(int *s,int n);
-int main (int argc, char **argv) {
+int main (int argc, char **argv) {  //或者*argv[]也可以 代表一个指针数组
   int rows;
   printf("How many integers?");
   scanf("%d",&rows);
