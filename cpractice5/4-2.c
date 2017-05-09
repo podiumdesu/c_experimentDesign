@@ -1,33 +1,31 @@
 //编写一个程序，输入一个整数，将它在内存中二进制表示的每一位转换成对应的数字字符中
 //存放到一个字符数组中，然后输出该整数的二进制表示
 
-/*#include <stdio.h>
-void binary2 (int * p, int n);
+
+#include <stdio.h>
 int main (void) {
-  int binary[100];
+  char binary[100];
   int number;
-  printf("Please input a number:");
+  int i;
+  printf("请输入一个整数");
   while (scanf("%d",&number) == 1) {
-    printf("ddd\n");
-    binary2(binary,number);
-    printf("dddds\n");
-
-    for (int i = 0; ; i++) {
-      printf("ddddd\n");
-
-      printf("%d",binary[i]);
+    for (i = 0; i < 100; i++) {
+      binary[i] = (number % 2 == 0) ? (0 + '0') : (1 + '0');
+  //    printf("bin = %c",binary[i]);
+      number /= 2;
+      if (number == 0) {
+        break;   //此处break，所以i的值没有递增
+      }
     }
+    for (int j = i ; j >= 0; j--) {
+      printf("%c",binary[j]);
+    }
+    printf("\n");
   }
   return 0;
 }
 
-void binary2(int * p, int n) {
-  while (n / 2 >= 0) {
-    *p++ = (n % 2 == 0) ? 0 : 1;
-  }
-}
-*/
-
+/*
 #include <stdio.h>
 int main (void) {
   int binary[100];
@@ -51,3 +49,4 @@ int main (void) {
   }
   return 0;
 }
+*/
