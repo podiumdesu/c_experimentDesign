@@ -4,6 +4,50 @@
 在调用函数中输出压缩空格后的各行，空行不予输出。
 */
 
+
+#include<stdio.h>
+#define MAX 80
+void compress();
+int main()
+{
+	compress();
+	return 0;
+}
+void compress()
+{
+	int n,i;
+	printf("请输入行数:\n");
+	scanf("%d",&n);
+	char s[n][MAX];
+	char *p[n];
+	printf("请输入字符串：\n");
+	while(getchar()!='\n');        /*清除缓冲区*/
+	for(i=0;i<n;i++)
+	{
+		gets(s[i]);
+		p[i]=s[i];
+	}
+	for(i=0;i<n;i++)
+	{
+		int j;
+		for(j=0;p[i][j]!='\0';j++) /*检查是否已到字符串末尾*/
+		{
+			if(p[i][j]==' '&&p[i][j]==' ') /*检查是否为连续多个空格*/
+			{
+				int k=j+1;
+				while(p[i][k++]==' ');
+				k--;                       /*压缩为一个空格*/
+				int t=j+1;
+				while(p[i][t++]=p[i][k++]);
+			}
+		}
+	}
+	printf("处理后的结果为：\n");
+	for(i=0;i<n;i++)
+	    printf("%s\n",*(p+i));
+}
+
+/*
 #include <stdio.h>
 #include <stdlib.h>
 #define ROW 2
@@ -25,7 +69,7 @@ int main (void) {
   for (int i = 0; i < ROW; i++) {
     for (int j = 0; j < 80; j++) {
       if (*(*(ptr+i)+j) == ' ') {
-        
+
       }
     }
   }
@@ -36,3 +80,4 @@ int main (void) {
   }
   return 0;
 }
+*/

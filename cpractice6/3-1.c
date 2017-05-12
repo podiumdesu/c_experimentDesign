@@ -7,18 +7,23 @@
 //1) ""
 
 #include<stdio.h>
-char *strcpy(char *,char *);
+char *strcpydd(char *,char *);
 int main(void)
 {
     char a[20],b[60]="there is a boat on the lake.";
-    printf("%s\n",strcpy(a,b));
+    printf("%s\n",strcpydd(a,b));
     return 0;
 
 }
-char *strcpy(char *s,char *t)
+char *strcpydd(char *s,char *t)
 {
     char *new = s;
-    while(*s++=*t++)
-    ;
+    int flag = (*s = *t);
+    while(flag){
+
+      s++;
+      t++;
+      flag = (*s = *t);
+    }
     return new;
 }

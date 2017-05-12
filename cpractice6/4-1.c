@@ -12,7 +12,7 @@ int main (void) {
   char result[4][2];
   long int number;
   printf("请输入一个长整型十六进制数");
-  scanf("%ld",&number);
+  scanf("%lx",&number);
   long int mask = 0;
 
   for (int i = 0; i < 4; i++) {
