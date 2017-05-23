@@ -91,10 +91,10 @@ float * everyOneAver(int (*ptr)[3],int STU_NUM, int COUR_NUM) {
   float * ptrd = new_ptr;
   for (int i = 0; i < STU_NUM; i++) {
     for (int j = 0; j < COUR_NUM; j++) {
-      result[i] += *(*(ptr + j) + i);    //注意是+= 不是= !!!
+      (*(result+i)) += *(*(ptr + j) + i);    //注意是+= 不是= !!!
     }
     //printf("%f",result[i]);
-    *ptrd = (result[i] / COUR_NUM);
+    *ptrd = ((*(result+i)) / COUR_NUM);
     ptrd++;
   }
   return new_ptr;

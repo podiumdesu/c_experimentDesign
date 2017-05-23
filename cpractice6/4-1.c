@@ -20,16 +20,16 @@ int main (void) {
   }
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 2; j++) {
-      new[i][j] = number & mask;
+      *(*(new+i)+j) = number & mask;
       number >>= 4;
     }
   }
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 2; j++) {
-      if (new[i][j] < 10) {
-        result[i][j] = new[i][j] + '0';
+      if (*(*(new+i)+j) < 10) {
+        *(*(result+i)+j) = *(*(new+i)+j) + '0';
       } else {
-        result[i][j] = new[i][j]-10+'a';
+        *(*(result+i)+j) = *(*(new+i)+j)-10+'a';
       }
     }
   }
@@ -37,7 +37,7 @@ int main (void) {
     printf("第%d个字节：  高     低\n",4-i);
     printf("       ");
     for (int j = 1; j >= 0; j--) {
-      printf("      %c",result[i][j]);
+      printf("      %c",*(*(result+i)+j));
     }
     printf("\n");
   }

@@ -10,7 +10,7 @@
 char *strcpydd(char *,char *);
 int main(void)
 {
-    char a[20],b[60]="there is a boat on the lake.";
+    char a[60],b[60]="there is a boat on the lake.";
     printf("%s\n",strcpydd(a,b));
     return 0;
 
@@ -20,7 +20,6 @@ char *strcpydd(char *s,char *t)
     char *new = s;
     int flag = (*s = *t);
     while(flag){
-
       s++;
       t++;
       flag = (*s = *t);

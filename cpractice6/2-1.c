@@ -5,7 +5,7 @@
 #include <string.h>
 int main(void)
 {
-  char* (*p)(char *,const char *);
+  char * (*p)(char *,const char *);
 
     char a[80],b[80],c[160],*result=c;
 	  int choice,i;

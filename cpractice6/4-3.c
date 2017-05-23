@@ -57,7 +57,7 @@ int main (int argc, char **argv) {  //或者*argv[]也可以 代表一个指针�
     printf("You will get a high to low array\n");
     getchar();
     getchar();
-    ptr = ptr+rows-1;
+    ptr = ptr+rows-1;      //更改ptr的值
     //printf("%d",*ptr);
     for (int i = 0; i < rows; i++) {
       printf("%d ",*ptr);  //输出指针ptr对应的值
