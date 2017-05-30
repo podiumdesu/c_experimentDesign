@@ -16,34 +16,34 @@ typedef struct stu_info {
   char name[20];
   int score[4];
   struct stu_info *next;
-}STU_INFO,*pINFO;
+}STU_INFO,*pINFO;     //定义结构和结构指针
 
 int main (void) {
   int stu_num;
   printf("How many students?  ");
-  scanf("%d",&stu_num);
+  scanf("%d",&stu_num);    //获取学生人数
   int s_num = stu_num;
   printf("Please input the infomation of every student\n");
-  pINFO head, current;
-  head = (pINFO)malloc(sizeof(STU_INFO));
-  head->next = NULL;
-  current = head;
-  while (s_num--) {
-    current->next = (pINFO)malloc(sizeof(STU_INFO));
-    current = current->next;
-    scanf("%s",current->id_no);
+  pINFO head, current;     //定义头指针和中间指针
+  head = (pINFO)malloc(sizeof(STU_INFO));    //为头指针分配空间
+  head->next = NULL;    //将头指针的指针域设置为 空
+  current = head;  //将中间指针指向头指针
+  while (s_num--) {     //获取输入的学生信息
+    current->next = (pINFO)malloc(sizeof(STU_INFO));    //为下一个链表项申请内存
+    current = current->next;   //将中间指针指向下一个链表项
+    scanf("%s",current->id_no);    //将数据存入链表项的内容域
     scanf("%s",current->name);
     for (int i = 0; i < 4; i++) {
       scanf("%d",&current->score[i]);
     }
-    current->next = NULL;
+    current->next = NULL;     //中间指针的指针域设置为 空
   }
 
   /**********输出每个学生的各项成绩**********/
-  current = head->next;
+  current = head->next;    //重置中间指针的指向
   printf("Here is the information of every student:\n");
   printf("%-20s%-10s%-10s%-10s%-10s%-10s\n","id","name","english","maths","physics","C");
-  while(current) {
+  while(current) {   //指针域存在
     printf("%-20s%-10s%-10d%-10d%-10d%-10d\n",current->id_no,current->name,current->score[0],current->score[1],current->score[2],current->score[3]);
     current = current->next;
   }
