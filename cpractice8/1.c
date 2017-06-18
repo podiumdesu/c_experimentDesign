@@ -6,7 +6,7 @@ int  main(void)
 	FILE *fp1,*fp2;
 	fp1=fopen("abc1.bin","wb+");
   fp2=fopen("abc2.txt","w+");
-	fwrite(&a,sizeof(short),1,fp1);
+	fwrite(&a,sizeof(char),1,fp1);
 	fwrite(&b,sizeof(short),1,fp1);     //
 	fprintf(fp2,"%hx %hx",a,b);   //写入fp2文件
 

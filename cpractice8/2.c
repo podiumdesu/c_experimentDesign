@@ -18,8 +18,7 @@ int main(int argc, char* argv[])
 
 	while((ch=fgetc(fp))!=EOF)          /* 从filename中读字符 */
 	   putchar(ch);      //!=优先级高于=
-
-
+     
 	fclose(fp);                      /* 关闭filename */
 	return 0;
 }

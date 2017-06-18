@@ -9,20 +9,10 @@ int main (int argc, char *argv[]) {
       printf("Arguments error!\n");
       exit(EXIT_FAILURE);
     }
-
-    //FILE *freopen(const char * restrict filename,
-    //const char * restrict mode,
-    //FILE * restrict stream)
     if ((fp = freopen(argv[1],"r",stdin)) == NULL) {    //重定向
       printf("Can't open %s file!\n",argv[1]);
       exit(EXIT_FAILURE);
     }
-
-    /*
-    if((fp=fopen(argv[1],"r"))==NULL){        /* fp 指向 filename */
-    /*  printf("Can't open %s file!\n",argv[1]);
-      exit(-1);
-    }*/
     while ((ch = fgetc(fp)) != EOF) {
       putchar(ch);
     }

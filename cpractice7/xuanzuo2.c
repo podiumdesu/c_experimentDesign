@@ -1,7 +1,4 @@
-/*(1) 对上述程序设计题中第（2）题的程序，增加按照平均成绩进行升序排序的函数，
-试写出用交换结点数据域的方法升序排序的函数，排序可用选择法或冒泡法。
-(2) 对选做题第（1）题，进一步写出用交换结点指针域的方法升序排序的函数。
-*/
+//(3) 采用双向链表重做编程设计题中的第（2）题。
 
 //将代码进行重构
 #include <stdio.h>
@@ -15,25 +12,35 @@ typedef struct stu_info {   //定义学生信息结构
   float avg;
   float sum;
   struct stu_info * next;
+  struct stu_info * prev;
 }STU_INFO,*pINFO;
 
-/*************创建链表************/
+/*************创建双向链表************/
 void create_list(pINFO *headp,int stu_num) {
-  pINFO current,head;
+  pINFO current,head,list,prev;
   head = (pINFO)malloc(sizeof(STU_INFO));
   head->next = NULL;
-  current = head;
+  list = head;
   while (stu_num--){
-    current->next = (pINFO)malloc(sizeof(STU_INFO));
-    current = current->next;
+    current = (pINFO)malloc(sizeof(STU_INFO));
+    list->next = current;   //将list指针的下一位指向current，即跳过head进行存储
+    current->prev = list;   //将current指针的前一位指向list指针
     //获取数据
     scanf("%s",current->id_no);
     scanf("%s",current->name);
     for (int i = 0; i < c_num; i++) {
       scanf("%f",&current->score[i]);
     }
-    current->next = NULL;
+    //list -> current -> (current->next)
+    // ^
+    list = list->next;   //list指针位向后移
+    //list -> current -> (current->next)
+    //        ^
+    list->next = NULL;    //将list指针位
+    //list -> current -> (current->next)
+    //        ^             为null
   }
+
   *headp = head;     //修改头指针指向
 }
 
@@ -117,7 +124,7 @@ void show_avg(pINFO *head, int s_num) {
 /*(1) 对上述程序设计题中第（2）题的程序，增加按照平均成绩进行升序排序的函数，
 试写出用交换结点数据域的方法升序排序的函数，排序可用选择法或冒泡法。
 */
-
+/*
 void bubble_sort(pINFO head,int stu_num) {
   pINFO current;
   STU_INFO copy;
@@ -141,9 +148,9 @@ void bubble_sort(pINFO head,int stu_num) {
     current = current->next;
   }
 }
-
+*/
 /*(2) 对选做题第（1）题，进一步写出用交换结点指针域的方法升序排序的函数。*/
-/*
+
 void pbubble_sort(pINFO headp,int stu_num) {
   pINFO copy;
   pINFO current;
@@ -170,7 +177,7 @@ void pbubble_sort(pINFO headp,int stu_num) {
 }
 
 
-*/
+
 int main (void) {
   int stu_num;
   pINFO head, current;   //定义头指针和中间指针
@@ -185,7 +192,7 @@ int main (void) {
   show_list(head);    //显示修改后的链表
   printf("\n");
   show_avg(&head,stu_num);    //给结构体中的avg和sum赋值，并显示平均分
-  bubble_sort(head,stu_num);
+  pbubble_sort(head,stu_num);
 
   return 0;
 }
